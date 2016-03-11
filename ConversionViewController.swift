@@ -38,6 +38,67 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        print("ConversionViewController did load")
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //Changes the background to a random color every time.
+        //view.backgroundColor = UIColor(red: CGFloat(arc4random_uniform(255)) / 255, green: CGFloat(arc4random_uniform(255)) / 255, blue: CGFloat(arc4random_uniform(255)) / 255, alpha: 1.0)
+        
+        //Changes the background based on time of day. Probably a lot more convoluted than needed but fuck it.
+        let dateTime = NSDate()
+        let dateFormatter: NSDateFormatter = {
+            let df = NSDateFormatter()
+            df.timeStyle = .MediumStyle
+            return df
+            }()
+        let currentTime = dateFormatter.stringFromDate(dateTime)
+        print("\(currentTime)")
+        print("\(currentTime.characters.first)")
+        
+        //Gets the hour characters of the time string. OH MY GOD I JUST FIGURED SOMETHING THE FUCK OUT.
+        var hour: String {
+            
+            if String(currentTime.characters[currentTime.characters.startIndex.advancedBy(1)]) == ":"
+            {
+                return String(currentTime.characters[currentTime.characters.startIndex])
+            }
+            else
+            {
+                return String(currentTime.characters[currentTime.characters.startIndex]) + String(currentTime.characters[currentTime.characters.startIndex.advancedBy(1)])
+            }
+        }
+        print(hour)
+        
+        if let hourTime = Int(hour)
+        {
+            if   currentTime.containsString("PM") && hourTime > 5
+            {
+                view.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
+                print("After 6PM")
+            }
+            else if currentTime.containsString("PM")
+            {
+                view.backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1.0)
+                print("Between Noon and 6PM")
+            }
+            else if currentTime.containsString("AM") && hourTime < 5
+            {
+                view.backgroundColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
+                print("Between midnight and 6AM")
+            }
+            else
+            {
+                view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+                print("Between 6AM and noon")
+            }
+        }
+        
+
+        
     }
     
     func updateCelciusLabel()
