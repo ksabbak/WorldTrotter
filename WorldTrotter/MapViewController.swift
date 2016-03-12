@@ -13,7 +13,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     var mapView: MKMapView!
     
+    var initialMapView = true
+    
     let locationManager = CLLocationManager()
+    
+    var locationArray = ["Paris", "Times Square", "Chicago", "self"]
     
     override func loadView()
     {
@@ -40,6 +44,26 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         topConstraint.active = true
         leadingConstraint.active = true
         trailingConstraint.active = true
+        
+        let pinButton = UIButton()
+        
+        pinButton.setTitle("Go to Pin", forState: .Normal)
+        pinButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        pinButton.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.4)
+        pinButton.addTarget(self, action: "onPinButtonTapped:", forControlEvents: .TouchUpInside)
+        
+        view.addSubview(pinButton)
+        
+        pinButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        let buttonTopConstraint = pinButton.topAnchor.constraintEqualToAnchor(segmentedControl.bottomAnchor, constant: 8)
+        let buttonLeadingConstraint = pinButton.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor)
+        let buttonTrailingConstraint = pinButton.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor)
+        
+        buttonLeadingConstraint.active = true
+        buttonTopConstraint.active = true
+        buttonTrailingConstraint.active = true
+        
     }
     
     override func viewDidLoad()
@@ -51,8 +75,28 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.showsUserLocation = true
        
         print("MapViewController loaded its view")
+        dropPinForLocation("Paris")
+        dropPinForLocation("Times Square")
+        dropPinForLocation("Chicago")
+        
     }
     
+    func dropPinForLocation(address: String)
+    {
+        let geolocation = CLGeocoder()
+        
+        geolocation.geocodeAddressString(address) { (placemarks:[CLPlacemark]?, error:NSError?) -> Void in
+            for placemark in placemarks!
+            {
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = (placemark.location?.coordinate)!
+                annotation.title = address
+                self.mapView.addAnnotation(annotation)
+            }
+            
+        }
+    }
+
     
     func mapTypeChanged(segControl: UISegmentedControl)
     {
@@ -67,6 +111,29 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         default:
             break
         }
+    }
+    
+    func onPinButtonTapped(button: UIButton)
+    {
+        if locationArray[0] == "self"
+        {
+            self.mapView.setRegion(MKCoordinateRegionMake(mapView.userLocation.coordinate, MKCoordinateSpanMake(0.3, 0.3)), animated: true)
+        }
+        else
+        {
+            let geolocation = CLGeocoder()
+            geolocation.geocodeAddressString(locationArray[0]) { (placemarks:[CLPlacemark]?, error:NSError?) -> Void in
+                for placemark in placemarks!
+                {
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = (placemark.location?.coordinate)!
+                    self.mapView.setRegion(MKCoordinateRegionMake(annotation.coordinate, MKCoordinateSpanMake(0.3, 0.3)), animated: true)
+                }
+            }
+        }
+        
+            locationArray.append(locationArray[0])
+            locationArray.removeFirst()
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
@@ -86,7 +153,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
     {
-        self.mapView.setRegion(MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.3, 0.3)), animated: true)
+        if initialMapView
+        {
+            self.mapView.setRegion(MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.3, 0.3)), animated: true)
+            initialMapView = false
+        }
     }
     
 }
