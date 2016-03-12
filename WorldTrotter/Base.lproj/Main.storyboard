@@ -86,7 +86,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="599" y="1238"/>
+            <point key="canvasLocation" x="31" y="1282"/>
         </scene>
         <!--Map-->
         <scene sceneID="Yib-iK-Xrk">
@@ -96,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNO-t2-w1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1275" y="1238"/>
+            <point key="canvasLocation" x="743" y="1282"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1De-gE-Wn1">
@@ -110,11 +110,22 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="gpI-8V-DDq"/>
                         <segue destination="IfH-Ag-vxq" kind="relationship" relationship="viewControllers" id="omf-YS-Pds"/>
+                        <segue destination="a1P-uD-zng" kind="relationship" relationship="viewControllers" id="KUq-1v-8iN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KhH-l4-B36" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911" y="361"/>
+            <point key="canvasLocation" x="743" y="307"/>
+        </scene>
+        <!--Web-->
+        <scene sceneID="fxL-wW-7yz">
+            <objects>
+                <viewController id="a1P-uD-zng" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Web" id="hKu-ik-ZPn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ehz-7o-asJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1495" y="1282"/>
         </scene>
     </scenes>
     <resources>

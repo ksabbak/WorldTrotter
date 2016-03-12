@@ -9,9 +9,11 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate {
     
     var mapView: MKMapView!
+    
+    let locationManager = CLLocationManager()
     
     override func loadView()
     {
@@ -44,6 +46,10 @@ class MapViewController: UIViewController {
     {
         super.viewDidLoad()
         
+        locationManager.requestWhenInUseAuthorization()
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+       
         print("MapViewController loaded its view")
     }
     
@@ -61,6 +67,26 @@ class MapViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
+    {
+        if annotation.isEqual(mapView.userLocation)
+        {
+            return nil
+        }
+        else
+        {
+            let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+            
+            return pin
+
+        }
+    }
+    
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
+    {
+        self.mapView.setRegion(MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.3, 0.3)), animated: true)
     }
     
 }

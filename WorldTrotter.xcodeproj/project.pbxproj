@@ -14,6 +14,7 @@
 		E3710BF91C922A190040DAD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3710BF81C922A190040DAD3 /* Assets.xcassets */; };
 		E3710BFC1C922A190040DAD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3710BFA1C922A190040DAD3 /* LaunchScreen.storyboard */; };
 		E3710C041C9274180040DAD3 /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3710C031C9274180040DAD3 /* ConversionViewController.swift */; };
+		E3B9CFFF1C939D600047D3DB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9CFFE1C939D600047D3DB /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E3710BFB1C922A190040DAD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3710BFD1C922A190040DAD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3710C031C9274180040DAD3 /* ConversionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversionViewController.swift; path = ../ConversionViewController.swift; sourceTree = "<group>"; };
+		E3B9CFFE1C939D600047D3DB /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				E3710C031C9274180040DAD3 /* ConversionViewController.swift */,
 				E3188BA91C934D46007C08FF /* MapViewController.swift */,
+				E3B9CFFE1C939D600047D3DB /* WebViewController.swift */,
 				E3710BF51C922A190040DAD3 /* Main.storyboard */,
 				E3710BF11C922A190040DAD3 /* AppDelegate.swift */,
 				E3710BF81C922A190040DAD3 /* Assets.xcassets */,
@@ -103,6 +106,7 @@
 				TargetAttributes = {
 					E3710BED1C922A190040DAD3 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = M4GJ798P8H;
 					};
 				};
 			};
@@ -145,6 +149,7 @@
 				E3710C041C9274180040DAD3 /* ConversionViewController.swift in Sources */,
 				E3188BAA1C934D46007C08FF /* MapViewController.swift in Sources */,
 				E3710BF21C922A190040DAD3 /* AppDelegate.swift in Sources */,
+				E3B9CFFF1C939D600047D3DB /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +262,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WorldTrotter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ksabbak.WorldTrotter;
@@ -269,6 +275,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WorldTrotter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ksabbak.WorldTrotter;
