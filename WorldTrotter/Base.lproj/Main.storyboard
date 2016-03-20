@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Convert-->
@@ -17,19 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ono-rv-XEE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ono-rv-XEE">
                                 <rect key="frame" x="147.5" y="120" width="305.5" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paS-UT-qKE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paS-UT-qKE">
                                 <rect key="frame" x="241" y="171" width="118.5" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vE-kt-wJP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vE-kt-wJP">
                                 <rect key="frame" x="173" y="314" width="254" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,14 +60,20 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="gF9-BG-c93" firstAttribute="centerX" secondItem="Ono-rv-XEE" secondAttribute="centerX" id="245-0A-5uh"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Ono-rv-XEE" secondAttribute="trailing" id="6hU-bp-cD7"/>
                             <constraint firstItem="paS-UT-qKE" firstAttribute="top" secondItem="Ono-rv-XEE" secondAttribute="bottom" constant="8" id="D85-OW-Dub"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="paS-UT-qKE" secondAttribute="trailing" id="Fym-K4-gNk"/>
                             <constraint firstItem="gar-ZT-BWS" firstAttribute="centerX" secondItem="Ono-rv-XEE" secondAttribute="centerX" id="QBE-eP-ufg"/>
                             <constraint firstItem="1vE-kt-wJP" firstAttribute="centerX" secondItem="Ono-rv-XEE" secondAttribute="centerX" id="QPT-Yy-GgZ"/>
+                            <constraint firstItem="paS-UT-qKE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Tg7-fh-IAV"/>
+                            <constraint firstItem="1vE-kt-wJP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="d4U-Nt-Ww1"/>
                             <constraint firstItem="1vE-kt-wJP" firstAttribute="top" secondItem="gar-ZT-BWS" secondAttribute="bottom" constant="8" id="hqK-UY-Szw"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="1vE-kt-wJP" secondAttribute="trailing" id="orP-Nc-mCZ"/>
                             <constraint firstItem="gF9-BG-c93" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="r9J-db-6hv"/>
                             <constraint firstItem="Ono-rv-XEE" firstAttribute="top" secondItem="gF9-BG-c93" secondAttribute="bottom" constant="8" id="ri8-2I-3OA"/>
                             <constraint firstItem="paS-UT-qKE" firstAttribute="centerX" secondItem="Ono-rv-XEE" secondAttribute="centerX" id="ryl-1u-l3N"/>
                             <constraint firstItem="gar-ZT-BWS" firstAttribute="top" secondItem="paS-UT-qKE" secondAttribute="bottom" constant="8" id="soG-ex-fi5"/>
+                            <constraint firstItem="Ono-rv-XEE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="u94-ex-UEe"/>
                             <constraint firstItem="gF9-BG-c93" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zyN-Iz-9Gp"/>
                         </constraints>
                         <connections>

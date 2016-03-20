@@ -18,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A6475A01C9F0E4F007C32DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		5A6475A11C9F0EAE007C32DF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		E3188BA71C9349DF007C08FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E3188BA91C934D46007C08FF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E3710BEE1C922A190040DAD3 /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				E3710BF61C922A190040DAD3 /* Base */,
+				5A6475A01C9F0E4F007C32DF /* en */,
+				5A6475A11C9F0EAE007C32DF /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

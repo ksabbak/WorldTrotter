@@ -116,9 +116,9 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
     
     @IBAction func fahrenheitFieldEditingChanged(textField: UITextField)
     {
-        if let text = textField.text, value = Double(text)
+        if let text = textField.text, number = numberFormatter.numberFromString(text)
         {
-            fahrValue = value
+            fahrValue = number.doubleValue
         }
         else
         {
@@ -135,8 +135,11 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
     //Mark: - TextField Delegate
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let existingTextHasDecimal = textField.text?.rangeOfString(".")
-        let replacementTextHasDecimal = string.rangeOfString(".")
+        let currentLocale = NSLocale.currentLocale()
+        let decimalSeparator = currentLocale.objectForKey(NSLocaleDecimalSeparator) as! String
+        
+        let existingTextHasDecimal = textField.text?.rangeOfString(decimalSeparator)
+        let replacementTextHasDecimal = string.rangeOfString(decimalSeparator)
         
         let replacementIsNumber = string.rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet())
         
